@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+.pycache-local/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.venv-windows/
+
+# Swift / Xcode local build state
+.build/
+.build-*/
+.build-local/
+.build-local*/
+.swiftpm/
+DerivedData/
+
+# Local app/package build artifacts
+Build/
+Dist/
+*.app/
+*.dmg
+build-pyinstaller/
+
+# Generated outputs and local backups
+outputs/
+Backups/
+tmp_*/
+
+# Local user rules and manual decisions
+Internal_DO_NOT_DELETE/project_rules/sorting_rules.md
+Internal_DO_NOT_DELETE/project_rules/manual_file_rules.json
+
+# IDE / scratch projects
+.idea/
+*.iml
+untitled/
+
+# Generated icon work cache
+Internal_DO_NOT_DELETE/app_source/native_app/.icon-work/

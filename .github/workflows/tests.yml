@@ -1,0 +1,24 @@
+name: Regression Tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  macos:
+    runs-on: macos-latest
+    env:
+      SORTING_RULES_FILE: Internal_DO_NOT_DELETE/tests/fixtures/ci_sorting_rules.md
+      SORTING_PATTERNS_FILE: Internal_DO_NOT_DELETE/project_rules/classification_patterns.json
+      SORTING_TEST_OCR: ${{ github.workspace }}/Build/ocr/release/pdf_ocr_pkg
+      SORTING_PDF_MERGER: ${{ github.workspace }}/Build/native/release/PDFMergeHelper
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-test.txt
+      - run: swift build --disable-sandbox --build-system native -c release --package-path Internal_DO_NOT_DELETE/ocr/ocr_package --scratch-path Build/ocr
+      - run: swift build --disable-sandbox --build-system native -c release --package-path Internal_DO_NOT_DELETE/app_source/native_app --scratch-path Build/native
+      - run: python -m unittest discover -s Internal_DO_NOT_DELETE/tests -p 'test_*.py'
+      - run: swift test --disable-sandbox --build-system native --scratch-path .build-local
+        working-directory: Internal_DO_NOT_DELETE/app_source/native_app

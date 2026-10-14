@@ -1,0 +1,2 @@
+configurations/personal export-ignore
+configurations/personal/** export-ignore

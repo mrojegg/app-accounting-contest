@@ -1,0 +1,149 @@
+{
+  "classification": [
+    {
+      "name": "rent_payment_known_contractor",
+      "filename": "rent.txt",
+      "text": "Платежное поручение\nДата 15.04.2026\nООО Пример\nПолучатель ООО ТЕСТ\nНазначение платежа Оплата аренды\nСумма 1000,00\n",
+      "expected": {
+        "office": "109",
+        "category": "Аренда",
+        "entity": "ПРИМЕР",
+        "destination_suffix": "109/Аренда",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "salary_payment_demo_b",
+      "filename": "salary.txt",
+      "text": "Платежное поручение\nДата 15.04.2026\nПолучатель Иванов Иван Иванович\nНазначение платежа Выплата заработной платы за апрель 2026\nСумма 120000,00\n",
+      "expected": {
+        "office": "98",
+        "category": "Зарплата",
+        "entity": "ОБРАЗЕЦ",
+        "destination_suffix": "98/Зарплата",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "internet_iskratelekom_demo_a",
+      "filename": "iskra.txt",
+      "text": "Счет Искрателеком офис 109",
+      "expected": {
+        "office": "109",
+        "category": "Интернет",
+        "entity": "ПРИМЕР",
+        "destination_suffix": "109/Интернет/Искрателеком",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "tax_enp_demo_a",
+      "filename": "tax.txt",
+      "text": "Платежное поручение\nООО Пример\nЕНП\nЕдиный налоговый платеж\nСумма 54321,00\n",
+      "expected": {
+        "office": null,
+        "category": "Налоги",
+        "entity": "ПРИМЕР",
+        "destination_suffix": "109/Ндфл и Взносы",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "bank_commission_demo_b",
+      "filename": "commission.txt",
+      "text": "VTB_payment_commission_123\nкомиссия банка\nООО Образец\nсумма 1500,00\n",
+      "expected": {
+        "office": null,
+        "category": "Комиссии",
+        "entity": "ОБРАЗЕЦ",
+        "destination_suffix": "98/Комиссии",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "insurance_demo_b",
+      "filename": "insurance.txt",
+      "text": "Платежное поручение\nООО Образец\nвзносы на обязательное страхование от несчастных случаев\nСумма 7000,00\n",
+      "expected": {
+        "office": null,
+        "category": "Взносы",
+        "entity": "ОБРАЗЕЦ",
+        "destination_suffix": "98/Ндфл и Взносы",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "ocr_noise_goes_manual_review",
+      "filename": "iskra_noise.txt",
+      "text": "CЧET\nAO ИCKPATEЛEKOM\noфиc 109\nдocтyп к ceти интepнeт\n",
+      "expected": {
+        "office": "109",
+        "category": "Интернет",
+        "entity": "ПРИМЕР",
+        "destination_suffix": "109/Интернет/Искрателеком",
+        "new_name": "искрателеком_без_даты_без_номера_без_суммы.txt",
+        "requires_manual_review": false
+      }
+    },
+    {
+      "name": "unknown_text_goes_manual_review",
+      "filename": "unknown.txt",
+      "text": "абвгд\n123\nzzz\n",
+      "expected": {
+        "office": null,
+        "category": "Прочее",
+        "entity": null,
+        "destination_suffix": "Требует_ручной_проверки",
+        "new_name": "unknown.txt",
+        "requires_manual_review": true
+      }
+    }
+  ],
+  "naming": [
+    {
+      "name": "salary_payment_filename",
+      "filename": "salary.txt",
+      "text": "Платежное поручение\nДата 15.04.2026\nПолучатель Иванов Иван Иванович\nНазначение платежа Выплата заработной платы за апрель 2026\nСумма 120000,00\n",
+      "office": "98",
+      "category": "Зарплата",
+      "entity": "ОБРАЗЕЦ",
+      "expected": "иванов_иван_иванович_15-04-2026_120000-00.txt"
+    },
+    {
+      "name": "plain_invoice_name_passthrough",
+      "filename": "счет_тестовый_5.pdf",
+      "text": "",
+      "office": "109",
+      "category": "Аренда",
+      "entity": "ПРИМЕР",
+      "expected": "счет_тестовыи_5.pdf"
+    },
+    {
+      "name": "tax_enp_filename",
+      "filename": "tax.txt",
+      "text": "Платежное поручение\nООО Пример\nЕНП\nЕдиный налоговый платеж\nСумма 54321,00\n",
+      "office": null,
+      "category": "Налоги",
+      "entity": "ПРИМЕР",
+      "expected": "енп_без_даты_без_номера_54321-00.txt"
+    },
+    {
+      "name": "bank_commission_filename",
+      "filename": "commission.txt",
+      "text": "VTB_payment_commission_123\nкомиссия банка\nООО Образец\nсумма 1500,00\n",
+      "office": null,
+      "category": "Комиссии",
+      "entity": "ОБРАЗЕЦ",
+      "expected": "комиссия_без_даты_без_номера_1500-00.txt"
+    },
+    {
+      "name": "insurance_filename",
+      "filename": "insurance.txt",
+      "text": "Платежное поручение\nООО Образец\nвзносы на обязательное страхование от несчастных случаев\nСумма 7000,00\n",
+      "office": null,
+      "category": "Взносы",
+      "entity": "ОБРАЗЕЦ",
+      "expected": "взносы_без_даты_без_номера_7000-00.txt"
+    }
+  ]
+}
