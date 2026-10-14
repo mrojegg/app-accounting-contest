@@ -1,29 +1,7 @@
 {
-  "ENTITY_PATTERNS": {
-    "ПРИМЕР": [
-      "пример",
-      "ооо\\s*[«\"\\']?пример"
-    ],
-    "ОБРАЗЕЦ": [
-      "образец",
-      "ооо\\s*[«\"\\']?образец"
-    ]
-  },
-  "ENTITY_ACCOUNT_PATTERNS": {
-    "ПРИМЕР": [],
-    "ОБРАЗЕЦ": []
-  },
-  "ENTITY_SOURCE_HINT_PATTERNS": {
-    "ПРИМЕР": [
-      "пример.*page[_ -]?\\d+",
-      "пример.*включительно"
-    ],
-    "ОБРАЗЕЦ": [
-      "\\bvtb_payment_commission_\\d+",
-      "\\bvtb_bank_order_\\d+",
-      "образец.*page[_ -]?\\d+"
-    ]
-  },
+  "ENTITY_PATTERNS": {},
+  "ENTITY_ACCOUNT_PATTERNS": {},
+  "ENTITY_SOURCE_HINT_PATTERNS": {},
   "CATEGORY_PATTERNS": {
     "Аренда": [
       "аренд",

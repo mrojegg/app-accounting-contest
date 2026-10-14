@@ -37,7 +37,7 @@ zsh Internal_DO_NOT_DELETE/tools/package_dmg.sh
 
 ```bash
 export SORTING_RULES_FILE="$PWD/Internal_DO_NOT_DELETE/tests/fixtures/ci_sorting_rules.md"
-export SORTING_PATTERNS_FILE="$PWD/Internal_DO_NOT_DELETE/project_rules/classification_patterns.json"
+export SORTING_PATTERNS_FILE="$PWD/Internal_DO_NOT_DELETE/tests/fixtures/ci_classification_patterns.json"
 python3 -m pip install -r requirements-test.txt
 python3 -m unittest discover -s Internal_DO_NOT_DELETE/tests -p 'test_*.py'
 swift test --disable-sandbox --build-system native \

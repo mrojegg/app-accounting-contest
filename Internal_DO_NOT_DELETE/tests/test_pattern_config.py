@@ -31,7 +31,7 @@ class PatternConfigTests(unittest.TestCase):
         self.assertEqual(config.entity_patterns["X"], ["abc"])
         self.assertEqual(config.category_patterns["Y"], ["def"])
         self.assertEqual(config.tax_patterns, ["tax"])
-        self.assertIn("ПРИМЕР", config.entity_account_patterns)
+        self.assertEqual(config.entity_account_patterns, {})
 
 
 if __name__ == "__main__":

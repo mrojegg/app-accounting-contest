@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-latest
     env:
       SORTING_RULES_FILE: Internal_DO_NOT_DELETE/tests/fixtures/ci_sorting_rules.md
-      SORTING_PATTERNS_FILE: Internal_DO_NOT_DELETE/project_rules/classification_patterns.json
+      SORTING_PATTERNS_FILE: Internal_DO_NOT_DELETE/tests/fixtures/ci_classification_patterns.json
       SORTING_TEST_OCR: ${{ github.workspace }}/Build/ocr/release/pdf_ocr_pkg
       SORTING_PDF_MERGER: ${{ github.workspace }}/Build/native/release/PDFMergeHelper
     steps:

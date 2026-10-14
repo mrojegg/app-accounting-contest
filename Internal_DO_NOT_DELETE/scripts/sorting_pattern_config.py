@@ -8,27 +8,11 @@ from pathlib import Path
 
 PATTERNS_FILE = Path(__file__).resolve().parent.parent / "project_rules" / "classification_patterns.json"
 
-DEFAULT_ENTITY_PATTERNS = {
-    "ПРИМЕР": [r"пример", r'ооо\s*[«"\']?пример'],
-    "ОБРАЗЕЦ": [r"образец", r'ооо\s*[«"\']?образец'],
-}
+DEFAULT_ENTITY_PATTERNS = {}
 
-DEFAULT_ENTITY_ACCOUNT_PATTERNS = {
-    "ПРИМЕР": [],
-    "ОБРАЗЕЦ": [],
-}
+DEFAULT_ENTITY_ACCOUNT_PATTERNS = {}
 
-DEFAULT_ENTITY_SOURCE_HINT_PATTERNS = {
-    "ПРИМЕР": [
-        r"пример.*page[_ -]?\d+",
-        r"пример.*включительно",
-    ],
-    "ОБРАЗЕЦ": [
-        r"\bvtb_payment_commission_\d+",
-        r"\bvtb_bank_order_\d+",
-        r"образец.*page[_ -]?\d+",
-    ],
-}
+DEFAULT_ENTITY_SOURCE_HINT_PATTERNS = {}
 
 DEFAULT_CATEGORY_PATTERNS = {
     "Аренда": [r"аренд", r"найм помещен", r"субаренд"],
